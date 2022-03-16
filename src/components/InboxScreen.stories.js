@@ -24,9 +24,10 @@ Default.parameters = {
   msw: {
     handlers: [
       rest.get(
-        "https://jsonplaceholder.typicode.com/todos?userId=1",
+        "https://jsonplaceholder.typicode.com/todos",
         (req, res, ctx) => {
-          return res(ctx.json(MockedState.tasks));
+          const userId = req.url.searchParams.get("userId");
+          if (userId) return res(ctx.json(MockedState.tasks));
         }
       ),
     ],
@@ -47,9 +48,10 @@ Error.parameters = {
   msw: {
     handlers: [
       rest.get(
-        "https://jsonplaceholder.typicode.com/todos?userId=1",
+        "https://jsonplaceholder.typicode.com/todos",
         (req, res, ctx) => {
-          return res(ctx.status(403));
+          const userId = req.url.searchParams.get("userId");
+          if (userId) return res(ctx.status(403));
         }
       ),
     ],

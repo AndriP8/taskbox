@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTasks } from "../lib/store";
 import TaskList from "./TaskList";
+import { MockedState } from "./TaskList.stories";
 
 const InboxScreen = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const InboxScreen = () => {
           <span className="title-wrapper">Taskbox</span>
         </h1>
       </nav>
-      <TaskList />
+      <TaskList tasks={MockedState.tasks} />
     </div>
   );
 };
