@@ -22,6 +22,7 @@ const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
           value={title}
           readOnly={true}
           placeholder="Input Title"
+          style={{ backgroundColor: "red" }}
         />
       </div>
       <div
